@@ -1,0 +1,41 @@
+---
+#Creating ts object
+# fpp required
+year=c(2012,2013,2014,2015,2016)
+obser=c(123,39,78,52,110)
+data1=data.frame(year,obser)
+class(data1)
+dts=ts(data1$obser,)
+class(dts)
+head(data1)
+plot(dts,xlab="year",ylab="obser")
+#avearge forecast
+#naive forecasts
+naive(dts, 4)
+rwf(dts, 4) # Equivalent alternative
+#Transformaing data
+
+#Use Australian Beer data 
+data(ausbeer)
+start(ausbeer)
+end(ausbeer)
+frequency(ausbeer)
+plot(ausbeer)
+#first difference
+d1=diff(ausbeer,diff=1)
+#Plot two graphs 
+par(mfrow=c(1,2))
+plot(ausbeer,col="red")
+plot(d1,col="blue")
+plot(ausbeer)
+#  Use Bajaj data
+b1=read.csv("E:/SSI_TSA/Data_TS/BajajStock.csv")
+ b1_ts=ts(b1$Close)
+ plot(b1_ts)
+ d11=diff(b1_ts,diff=1)
+plot(d11)
+lnb1=log(b1_ts)
+plot(lnb1)
+d13=diff(lnb1,diff=1)
+plot(d13)
+plot(d13)
